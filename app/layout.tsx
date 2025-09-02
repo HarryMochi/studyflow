@@ -1,8 +1,8 @@
-
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { AuthProvider } from '@/hooks/use-auth';
+import Script from 'next/script'; // ✅ Import Next.js Script component
 
 export const metadata: Metadata = {
   title: 'StudyFlow: Your Personal AI Guide to Mastering Any Subject',
@@ -24,6 +24,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+        {/* ✅ Add Umami tracking script */}
+        <Script
+          async
+          src="https://cloud.umami.is/script.js"
+          data-website-id="92fda31f-7101-4701-b45e-b9b54edbef36"
+        />
       </head>
       <body className="font-body antialiased">
         <AuthProvider>
